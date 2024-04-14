@@ -1,8 +1,5 @@
-// app/listings/[id].page.tsx
-import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
-// app/page.js
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id
   const res = await fetch(
@@ -13,6 +10,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   console.log(mdxText)
   return <MDXRemote source={`${mdxText}`} />
 }
+
 // interface Props {
 //   mdxSource: MDXRemoteSerializeResult
 // }
