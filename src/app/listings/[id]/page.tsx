@@ -1,13 +1,11 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
-export const dynamic = 'force-dynamic'
+
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id
   const res = await fetch(
     `https://raw.githubusercontent.com/derekjwilliams/marigold-listings/main/src/listingsMarkdown/listing_${id}.mdx`
   )
   const mdxText = await res.text()
-  console.log(id)
-  console.log(mdxText)
   return <MDXRemote source={`${mdxText}`} />
 }
 
