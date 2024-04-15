@@ -1,5 +1,5 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
-
+export const dynamic = 'force-dynamic'
 export default async function Page({ params }: { params: { id: string } }) {
   const id = params.id
   const res = await fetch(
