@@ -1,11 +1,18 @@
 import Image from 'next/image'
 
-<div style={{margin: '2rem',   display: 'grid',
-  gridTemplateColumns: '[a1] 4fr [a2] 1fr [b2] 3fr [a3] 2fr [b3] 2fr [a4] 3fr [b4] 1fr [a5] 4fr [a6]',
+<div style={{margin: '0rem',   display: 'grid',
+  gridTemplateColumns: '[a0] 1fr [a1] 4fr [a2] 1fr [b2] 3fr [a3] 2fr [b3] 2fr [a4] 3fr [b4] 1fr [a5] 4fr [a6]',
   gridColumnGap: '2vw',
   gridRowGap: '5vh',
-  margin: '2rem'}}>
-
+  margin: '0rem'}}>
+    <div style={{backgroundColor: 'rgb(255 213 95)', gridColumn: 'a0 / a6'}}>
+      <Image
+        alt='simple logo'
+        width={492 / 4}
+        height={492 / 4}
+        src='/simple_logo.png'
+      />
+</div>
 <div style={{gridColumn: 'a1 / b2'}}>
 <h2 style={{marginBottom: '2rem', fontWeight: '700'}}>$1,100/mo</h2>
 <div style={{marginBottom: '2rem'}}>2bd, 1ba, 1,200 sqft</div>
@@ -28,7 +35,7 @@ import Image from 'next/image'
 </div>
 </div>
 
-<div style={{gridColumn: 'a3 / a6'}}>
+<div style={{gridColumn: 'a3 / a5'}}>
 <h2>Building overview</h2>
 <p style={{margin: '1rem 0 1rem 0'}}>
 
