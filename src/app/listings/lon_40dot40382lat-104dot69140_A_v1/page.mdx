@@ -1,90 +1,78 @@
 import Image from 'next/image'
 
-<div style={{margin: '0rem',   display: 'grid',
-  gridTemplateColumns: '[a0] 1fr [a1] 4fr [a2] 1fr [b2] 3fr [a3] 2fr [b3] 2fr [a4] 3fr [b4] 1fr [a5] 4fr [a6]',
-  gridColumnGap: '2vw',
-  gridRowGap: '5vh',
-  margin: '0rem'}}>
-    <div style={{backgroundColor: 'rgb(255 213 95)', gridColumn: 'a0 / a6'}}>
-      <Image
-        alt='simple logo'
-        width={492 / 4}
-        height={492 / 4}
-        src='/simple_logo.png'
-      />
-</div>
-<div style={{gridColumn: 'a1 / b2'}}>
-<h2 style={{marginBottom: '2rem', fontWeight: '700'}}>$1,100/mo</h2>
-<div style={{marginBottom: '2rem'}}>2bd, 1ba, 1,200 sqft</div>
+    <div style={{margin: '0rem',   display: 'grid',
+    gridTemplateColumns: '[a0] 1fr [a1] 4fr [a2] 1fr [b2] 3fr [a3] 2fr [b3] 2fr [a4] 3fr [b4] 1fr [a5] 4fr [a6]',
+    gridColumnGap: '2vw',
+    gridRowGap: '5vh',
+    margin: '0rem'}}>
+        <div style={{backgroundColor: 'rgb(255 213 95)', gridColumn: 'a0 / a6'}}>
+        <img
+            alt='simple logo'
+            width={492 / 4}
+            height={492 / 4}
+            src='/simple_logo.png'
+        />
+        </div>
+        <div style={{gridColumn: 'a1 / b2'}}>
+            <h2 style={{marginBottom: '2rem', fontWeight: '700'}}>$1,100/mo</h2>
+            <div style={{marginBottom: '2rem'}}>2bd, 1ba, 1,200 sqft</div>
 
-<div style={{marginBottom: '2rem', fontWeight: '700'}}>2105 8th Ave, #A, Greeley CO 80631</div>
+            <div style={{marginBottom: '2rem', fontWeight: '700'}}>2105 8th Ave, #A, Greeley CO     </div>
 
 
-<div style={{marginBottom: '1rem'}}>
-<h3>Highlights</h3>
-<div style={{margin: '1rem'}}>
+            <div style={{marginBottom: '1rem'}}>
+                <h3>Highlights</h3>
+                <div style={{margin: '1rem'}}>
+                    <ul>
+                        <li>Pet Friendly</li>
+                        <li>In-Unit Laundry</li>
+                        <li>Off Street Parking</li>
+                        <li>Spacious Bedrooms</li>
+                        <li>Flexible Lease Lengths</li>
+                    </ul>
+                </div>
+            </div>
+    </div>
 
-<ul>
-<li>Pet Friendly</li>
-<li>In-Unit Laundry</li>
-<li>Off Street Parking</li>
-<li>Spacious Bedrooms</li>
-<li>Flexible Lease Lengths</li>
-</ul>
-</div>
-</div>
-</div>
-
-<div style={{gridColumn: 'a3 / a5'}}>
-<h2>Building overview</h2>
-<p style={{margin: '1rem 0 1rem 0'}}>
-
-Welcome to our newly available apartment in Greeley, CO! 
-Perfectly situated next to campus, this 2-bedroom, 1-bathroom unit is now leasing for immediate move-in. 
-This home comes with an office and a spare bedroom! With its convenient location, 
-you'll have easy access to all the amenities and activities the campus has to offer. 
-The apartment features off-street parking, ensuring you always have a spot for your vehicle. 
-Inside the building, you'll find a washer and dryer, making laundry day a breeze. 
-The bedrooms are designed in a dorm-style, providing a cozy and comfortable space for you to 
-relax and unwind after a long day. Don't miss out on this incredible opportunity to live 
-in a prime location, just steps away from campus. Contact us today to schedule a tour and secure your new home!
-Utilities are an additional $290 estimated - including gas, electric, trash, water and lawn care!
-</p>
-<p style={{marginTop: '1rem'}}>
-Please Note
-A PROSPECTIVE TENANT HAS THE RIGHT TO PROVIDE TO THE LANDLORD A PORTABLE TENANT SCREENING REPORT, AS DEFINED IN SECTION 38-12-902 (2.5), COLORADO REVISED STATUTES AND IF THE PROSPECTIVE TENANT PROVIDES THE LANDLORD WITH A PORTABLE TENANT SCREENING REPORT, THE LANDLORD IS PROHIBITED FROM CHARGING THE PROSPECTIVE TENANT A RENTAL APPLICATION FEE OR CHARGING THE PROSPECTIVE TENANT A FEE FOR THE LANDLORD TO ACCESS OR USE THE PORTABLE TENANT SCREENING REPORT.
-</p>
-</div>
-
+    <div style={{gridColumn: 'a3 / a5'}}>
+        <h2>Building overview</h2>
+        <p style={{margin: '1rem 0 1rem 0'}}>
+            Welcome to our newly available apartment in Greeley, CO! Perfectly situated next to campus, this 2-bedroom, 1-bathroom unit is now leasing for immediate move-in. This home comes with an office and a spare bedroom! With its convenient location, you'll have easy access to all the amenities and activities the campus has to offer. The apartment features off-street parking, ensuring you always have a spot for your vehicle. Inside the building, you'll find a washer and dryer, making laundry day a breeze. The bedrooms are designed in a dorm-style, providing a cozy and comfortable space for you to relax and unwind after a long day. Don't miss out on this incredible opportunity to live in a prime location, just steps away from campus. Contact us today to schedule a tour and secure your new home! Utilities are an additional $290 estimated - including gas, electric, trash, water and lawn care!
+        </p>
+        <p style={{marginTop: '1rem'}}>
+            Please Note A PROSPECTIVE TENANT HAS THE RIGHT TO PROVIDE TO THE LANDLORD A PORTABLE TENANT SCREENING REPORT, AS DEFINED IN SECTION 38-12-902 (2.5), COLORADO REVISED STATUTES AND IF THE PROSPECTIVE TENANT PROVIDES THE LANDLORD WITH A PORTABLE TENANT SCREENING REPORT, THE LANDLORD IS PROHIBITED FROM CHARGING THE PROSPECTIVE TENANT A RENTAL APPLICATION FEE OR CHARGING THE PROSPECTIVE TENANT A FEE FOR THE LANDLORD TO ACCESS OR USE THE PORTABLE TENANT SCREENING REPORT.
+        </p>
+    </div>
 </div>
 
 
 <div style={{display: 'inline-flex', gap: '2rem', flexWrap: 'wrap', margin: '2rem'}} >
     <div>
-        <Image quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/08bb9c3d1af9bb3d78486d946c0dfde2-o_a.webp"/>
+        <img quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/08bb9c3d1af9bb3d78486d946c0dfde2-o_a.webp"/>
     </div>
     <div>
-        <Image quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/5b5df924b65c9dff12b7e952039c73b5-uncropped_scaled_within_1536_1152.webp"/>
+        <img quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/5b5df924b65c9dff12b7e952039c73b5-uncropped_scaled_within_1536_1152.webp"/>
     </div>
     <div>
-        <Image quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/86abb7f3e790990b9702e6f7060a830b-uncropped_scaled_within_1536_1152.webp"/>
+        <img quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/86abb7f3e790990b9702e6f7060a830b-uncropped_scaled_within_1536_1152.webp"/>
     </div>
     <div>
-        <Image quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/768b685d39d84a9f392120718d783835-uncropped_scaled_within_1536_1152.webp"/>
+        <img quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/768b685d39d84a9f392120718d783835-uncropped_scaled_within_1536_1152.webp"/>
     </div>
     <div>
-        <Image quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/87387a588439db14d823af49702a07eb-uncropped_scaled_within_1536_1152.webp"/>
+        <img quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/87387a588439db14d823af49702a07eb-uncropped_scaled_within_1536_1152.webp"/>
     </div>
     <div>
-        <Image quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/9b84214803b23d583b876a77d7ee8e36-uncropped_scaled_within_1536_1152.webp"/>
+        <img quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/9b84214803b23d583b876a77d7ee8e36-uncropped_scaled_within_1536_1152.webp"/>
     </div>
     <div>
-        <Image quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/f2d8330987b2e97bf95526584f0b1fd8-uncropped_scaled_within_1536_1152.webp"/>
+        <img quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/f2d8330987b2e97bf95526584f0b1fd8-uncropped_scaled_within_1536_1152.webp"/>
     </div>
     <div>
-        <Image quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/331caa2dd8a9d00c178f2cb00ef12030-uncropped_scaled_within_1536_1152.webp"/>
+        <img quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/331caa2dd8a9d00c178f2cb00ef12030-uncropped_scaled_within_1536_1152.webp"/>
     </div>
     <div>
-        <Image quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/3daf891ee3e78ba04795a4ea7df8cec2-uncropped_scaled_within_1536_1152.webp"/>
+        <img quality={100} style={{objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px', borderRadius: '1rem'}} width={250} height={250} src="https://photos.zillowstatic.com/fp/3daf891ee3e78ba04795a4ea7df8cec2-uncropped_scaled_within_1536_1152.webp"/>
     </div>
 </div>
+
