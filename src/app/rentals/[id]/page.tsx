@@ -47,7 +47,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   const details = (
     <div style={{ gridColumn: 'a0 / a2' }}>
       <h2 style={{ marginBottom: '2rem', fontWeight: '700' }}>
-        {`$${listing?.monthly_rent}/mo`}
+        {`$${listing?.monthly_rent.toLocaleString()}/mo`}
       </h2>
       <div style={{ marginBottom: '2rem' }}>{listing?.rooms}</div>
       <div style={{ marginBottom: '2rem', fontWeight: '700' }}>
