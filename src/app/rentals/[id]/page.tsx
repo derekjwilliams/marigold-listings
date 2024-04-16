@@ -27,31 +27,31 @@ export default async function Page({ params }: { params: { id: string } }) {
       style={{
         objectFit: 'cover',
         boxShadow:
-          'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px',
-        borderRadius: '1rem',
+          'rgba(0, 0, 0, 0.5) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px',
+        borderRadius: '0.5rem',
       }}
       key={image.id}
       alt={image.description}
-      width={200}
-      height={200}
+      width={250}
+      height={250}
       src={image.url}
     ></Image>
   ))
   const description = (
-    <div style={{ gridColumn: 'a3 / a5' }}>
+    <div style={{ gridColumn: 'b2 / a6' }}>
       <h2>Building overview</h2>
       <p style={{ margin: '1rem 0 1rem 0' }}>{listing?.description}</p>
+      <p style={{ marginTop: '1rem' }}>{listing?.required_legal_statement}</p>
     </div>
   )
-  const address = <div></div>
   const details = (
-    <div style={{ gridColumn: 'a1 / b2' }}>
+    <div style={{ gridColumn: 'a0 / a2' }}>
       <h2 style={{ marginBottom: '2rem', fontWeight: '700' }}>
         {`$${listing?.monthly_rent}/mo`}
       </h2>
       <div style={{ marginBottom: '2rem' }}>{listing?.rooms}</div>
       <div style={{ marginBottom: '2rem', fontWeight: '700' }}>
-        {listing?.address_1}
+        {`${listing?.address_1} ${listing?.address_2},  ${listing?.city}, ${listing?.state_province} ${listing?.postal_code}`}
       </div>
       <div style={{ marginBottom: '1rem' }}>
         <h3>Highlights</h3>
@@ -59,16 +59,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <ul>
             {listing?.features.map(
               (
-                feature:
-                  | string
-                  | number
-                  | boolean
-                  | ReactElement<any, string | JSXElementConstructor<any>>
-                  | Iterable<ReactNode>
-                  | ReactPortal
-                  | Promise<AwaitedReactNode>
-                  | null
-                  | undefined,
+                feature: string | null | undefined,
                 index: Key | null | undefined
               ) => (
                 <li key={index}>{feature}</li>
@@ -100,7 +91,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div
             style={{
               display: 'inline-flex',
-              gap: '2rem',
+              gap: '1rem',
               flexWrap: 'wrap',
               margin: '2rem',
             }}
