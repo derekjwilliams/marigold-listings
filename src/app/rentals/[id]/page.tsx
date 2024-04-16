@@ -32,8 +32,8 @@ export default async function Page({ params }: { params: { id: string } }) {
       }}
       key={image.id}
       alt={image.description}
-      width={250}
-      height={250}
+      width={280}
+      height={280}
       src={image.url}
     ></Image>
   ))
@@ -102,9 +102,9 @@ export default async function Page({ params }: { params: { id: string } }) {
         style={{
           justifyContent: 'space-evenly',
           display: 'inline-flex',
-          gap: '2rem',
+          gap: '1rem',
           flexWrap: 'wrap',
-          margin: '2rem',
+          margin: '1rem',
         }}
       >
         {listingImages}
