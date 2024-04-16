@@ -100,6 +100,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       </div>
       <div
         style={{
+          justifyContent: 'space-evenly',
           display: 'inline-flex',
           gap: '2rem',
           flexWrap: 'wrap',
