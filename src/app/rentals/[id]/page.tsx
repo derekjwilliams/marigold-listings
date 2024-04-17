@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     .single()
 
   const listingImages = listing?.listing_images?.map((image) => (
-    <Image
+    <img
       style={{
         objectFit: 'cover',
         boxShadow:
@@ -35,7 +35,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       width={280}
       height={280}
       src={image.url}
-    ></Image>
+    ></img>
   ))
   const description = (
     <div style={{ gridColumn: 'b2 / a6' }}>
