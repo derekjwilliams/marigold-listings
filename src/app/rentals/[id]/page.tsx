@@ -12,6 +12,7 @@ import {
 } from 'react'
 
 export default async function Page({ params }: { params: { id: string } }) {
+  const aspectRatio = 1.5
   const supabase = createClient()
   const { data: listing } = await supabase
     .from('listings')
@@ -32,7 +33,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       }}
       key={image.id}
       alt={image.description}
-      width={280}
+      width={280 * aspectRatio}
       height={280}
       src={image.url}
     ></Image>
