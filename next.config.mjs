@@ -20,6 +20,12 @@ const nextConfig = {
         port: '',
         pathname: '/rcp-prod-uploads/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'alysmxvvutkmqugooylp.supabase.co',
+        port: '',
+        pathname: '/storage/v1/object/public/marigold-rental-images/**',
+      },
     ],
     // domains: ['s3.amazonaws.com', 'https://photos.zillowstatic.com'],
     formats: ['image/webp'],
