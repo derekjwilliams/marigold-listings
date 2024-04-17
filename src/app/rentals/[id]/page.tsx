@@ -33,8 +33,8 @@ export default async function Page({ params }: { params: { id: string } }) {
       }}
       key={image.id}
       alt={image.description}
-      width={280 * aspectRatio}
-      height={280}
+      width={250 * aspectRatio}
+      height={250}
       src={image.url}
     ></Image>
   ))
