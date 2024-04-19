@@ -13,15 +13,30 @@ import {
 } from 'react'
 
 const rental = stylex.create({
+  compoundGrid: {
+      display: 'grid',
+      gridTemplateColumns: '[a0] 1fr [a1] 4fr [a2] 1fr [b2] 3fr [a3] 2fr [b3] 2fr [a4] 3fr [b4] 1fr [a5] 4fr [a6]',
+      gridColumnGap: '0.5vw',
+      gridRowGap: '1vh',
+      margin: '1rem',
+  },
   image: {
     objectFit: 'cover',
     boxShadow:
           'rgba(0, 0, 0, 0.5) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px',
-    borderRadius: '0.5rem',     
+    borderRadius: '0.5rem',
+    margin: 20   
   },
   description: {
     gridColumn: 'b2 / a6'
   },
+  details: {
+    gridColumn: 'a0 / a2'
+  },
+  heading: {
+    fontWeight: '700',
+    marginBottom: '2rem'
+  }
 })
 
 
@@ -56,9 +71,9 @@ export default async function Page({ params }: { params: { id: string } }) {
     </div>
   )
   const details = (
-    <div style={{ gridColumn: 'a0 / a2' }}>
-      <h2 style={{ marginBottom: '2rem', fontWeight: '700' }}>
-        {`$${listing?.monthly_rent.toLocaleString()}/mo`}
+    <div {...stylex.props(rental.details)}>
+      <h2 {...stylex.props(rental.heading)}>
+        <div {...stylex.props(rental.heading)}>{`$${listing?.monthly_rent.toLocaleString()}/mo`}</div>
       </h2>
       <div style={{ marginBottom: '2rem' }}>{listing?.rooms}</div>
       <div style={{ marginBottom: '2rem', fontWeight: '700' }}>
@@ -96,7 +111,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     <div>
       <div>
         {header}
-        <div className='compound-grid'>
+        <div {...stylex.props(rental.compoundGrid)}>
           {details}
           {description}
           <div
