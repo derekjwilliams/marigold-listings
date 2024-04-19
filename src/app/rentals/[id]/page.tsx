@@ -82,6 +82,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       width={250 * aspectRatio}
       height={250}
       src={image.url}
+      loading='lazy'
     ></Image>
   ))
 
