@@ -13,7 +13,10 @@ import {
 } from 'react'
 
 const rental = stylex.create({
-  compoundGrid: {
+  logo: {
+    backgroundColor: 'rgb(255 213 95)', padding: '1rem'
+  },
+  propertyInformation: {
       display: 'grid',
       gridTemplateColumns: '[a0] 1fr [a1] 4fr [a2] 1fr [b2] 3fr [a3] 2fr [b3] 2fr [a4] 3fr [b4] 1fr [a5] 4fr [a6]',
       gridColumnGap: '0.5vw',
@@ -27,16 +30,41 @@ const rental = stylex.create({
     borderRadius: '0.5rem',
     margin: 20   
   },
-  description: {
+  images: {
+    justifyContent: 'space-evenly',
+    display: 'inline-flex',
+    gap: '1rem',
+    flexWrap: 'wrap',
+    margin: '1rem',
+  },
+  overview: {
     gridColumn: 'b2 / a6'
+  },
+  description: {
+    margin: '1rem 0 1rem 0'
+  },
+  legal: {
+    marginTop: '1rem'
   },
   details: {
     gridColumn: 'a0 / a2'
   },
+  rooms: {
+    marginBottom: '2rem'
+  },
   heading: {
     fontWeight: '700',
     marginBottom: '2rem'
-  }
+  },
+  address: {
+    marginBottom: '2rem', fontWeight: '700'
+  },
+  highlights: {
+    marginBottom: '1rem'
+  },
+  highlightsList: {
+      margin: '1rem'
+  },
 })
 
 
@@ -62,27 +90,28 @@ export default async function Page({ params }: { params: { id: string } }) {
       src={image.url}
     ></Image>
   ))
-  const description = (
-    
-    <div {...stylex.props(rental.description)}>
+
+  const overview = (
+    <div {...stylex.props(rental.overview)}>
       <h2>Building overview</h2>
-      <p style={{ margin: '1rem 0 1rem 0' }}>{listing?.description}</p>
-      <p style={{ marginTop: '1rem' }}>{listing?.required_legal_statement}</p>
+      <p {...stylex.props(rental.description)}>{listing?.description}</p>
+      <p {...stylex.props(rental.legal)}>{listing?.required_legal_statement}</p>
     </div>
   )
+
   const details = (
     <div {...stylex.props(rental.details)}>
       <h2 {...stylex.props(rental.heading)}>
         <div {...stylex.props(rental.heading)}>{`$${listing?.monthly_rent.toLocaleString()}/mo`}</div>
       </h2>
-      <div style={{ marginBottom: '2rem' }}>{listing?.rooms}</div>
-      <div style={{ marginBottom: '2rem', fontWeight: '700' }}>
+      <div {...stylex.props(rental.rooms)}>{listing?.rooms}</div>
+      <div {...stylex.props(rental.address)}>
         {`${listing?.address_1} ${listing?.address_2},  ${listing?.city}, ${listing?.state_province} ${listing?.postal_code}`}
       </div>
-      <div style={{ marginBottom: '1rem' }}>
+      <div {...stylex.props(rental.highlights)}>
         <h3>Highlights</h3>
-        <div style={{ margin: '1rem' }}>
-          <ul>
+        <div>
+          <ul {...stylex.props(rental.highlightsList)}>
             {listing?.features.map(
               (
                 feature: string | null | undefined,
@@ -98,7 +127,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   )
 
   const header = (
-    <div style={{ backgroundColor: 'rgb(255 213 95)', padding: '1rem' }}>
+    <div {...stylex.props(rental.logo)}>
       <Image
         alt='simple logo'
         width={492 / 8}
@@ -111,28 +140,12 @@ export default async function Page({ params }: { params: { id: string } }) {
     <div>
       <div>
         {header}
-        <div {...stylex.props(rental.compoundGrid)}>
+        <div {...stylex.props(rental.propertyInformation)}>
           {details}
-          {description}
-          <div
-            style={{
-              display: 'inline-flex',
-              gap: '1rem',
-              flexWrap: 'wrap',
-              margin: '2rem',
-            }}
-          ></div>
+          {overview}
         </div>
       </div>
-      <div
-        style={{
-          justifyContent: 'space-evenly',
-          display: 'inline-flex',
-          gap: '1rem',
-          flexWrap: 'wrap',
-          margin: '1rem',
-        }}
-      >
+      <div {...stylex.props(rental.images)}>
         {listingImages}
       </div>
     </div>
