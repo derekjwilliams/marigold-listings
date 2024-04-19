@@ -2,10 +2,7 @@
 import { createClient } from '@/lib/supabase/server'
 import Image from 'next/image'
 import * as stylex from '@stylexjs/stylex'
-
-import {
-  Key,
-} from 'react'
+import { Key } from 'react'
 
 const rental = stylex.create({
   logo: {
