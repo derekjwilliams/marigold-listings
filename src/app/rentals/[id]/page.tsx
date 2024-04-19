@@ -4,11 +4,6 @@ import Image from 'next/image'
 import * as stylex from '@stylexjs/stylex'
 
 import {
-  ReactElement,
-  JSXElementConstructor,
-  ReactNode,
-  ReactPortal,
-  AwaitedReactNode,
   Key,
 } from 'react'
 
