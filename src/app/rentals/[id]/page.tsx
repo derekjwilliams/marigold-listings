@@ -82,8 +82,8 @@ export default async function Page({ params }: { params: { id: string } }) {
       {...stylex.props(rental.image)}
       key={image.id}
       alt={image.description}
-      width={250 * aspectRatio}
-      height={250}
+      width={220 * aspectRatio}
+      height={220}
       src={image.url}
       loading='lazy'
     ></Image>
