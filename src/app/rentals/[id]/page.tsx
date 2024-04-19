@@ -49,7 +49,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   ))
   const description = (
     
-    <div style={{ gridColumn: 'b2 / a6' }}>
+    <div {...stylex.props(rental.description)}>
       <h2>Building overview</h2>
       <p style={{ margin: '1rem 0 1rem 0' }}>{listing?.description}</p>
       <p style={{ marginTop: '1rem' }}>{listing?.required_legal_statement}</p>
