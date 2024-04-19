@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const stylexPlugin = require('@stylexjs/nextjs-plugin')
 const nextConfig = {
-  optimizeFonts: false,
+  productionBrowserSourceMaps: false,
+  'experimental.serverSourceMaps': false,
+  optimizeFonts: true,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   images: {
     remotePatterns: [
