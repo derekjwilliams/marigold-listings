@@ -36,15 +36,15 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-private-methods": "^7.24.1",
-    "@stylexjs/eslint-plugin": "^0.5.1",
-    "@stylexjs/nextjs-plugin": "^0.5.1",
+    "@stylexjs/eslint-plugin": "^0.6.0",
+    "@stylexjs/nextjs-plugin": "^0.6.0",
     "@tanstack/eslint-plugin-query": "^5.28.11",
     "@types/node": "20.12.4",
     "@types/react": "18.2.74",
     "@types/react-dom": "18.2.24",
     "encoding": "^0.1.13",
     "eslint-config-next": "latest",
-    "openapi-typescript": "^6.7.5",
+    "openapi-typescript": "^5.4.0",
     "prettier-plugin-stylex-key-sort": "^1.0.1",
     "rimraf": "^5.0.5"
   }

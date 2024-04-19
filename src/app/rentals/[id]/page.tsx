@@ -2,6 +2,7 @@
 import { createClient } from '@/lib/supabase/server'
 import Image from 'next/image'
 import * as stylex from '@stylexjs/stylex'
+
 import {
   ReactElement,
   JSXElementConstructor,
@@ -10,6 +11,19 @@ import {
   AwaitedReactNode,
   Key,
 } from 'react'
+
+const rental = stylex.create({
+  image: {
+    objectFit: 'cover',
+    boxShadow:
+          'rgba(0, 0, 0, 0.5) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px',
+    borderRadius: '0.5rem',     
+  },
+  description: {
+    gridColumn: 'b2 / a6'
+  },
+})
+
 
 export default async function Page({ params }: { params: { id: string } }) {
   const aspectRatio = 1.5
@@ -25,12 +39,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   const listingImages = listing?.listing_images?.map((image) => (
     <Image
-      style={{
-        objectFit: 'cover',
-        boxShadow:
-          'rgba(0, 0, 0, 0.5) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px',
-        borderRadius: '0.5rem',
-      }}
+    {...stylex.props(rental.image)}
       key={image.id}
       alt={image.description}
       width={250 * aspectRatio}
@@ -39,6 +48,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     ></Image>
   ))
   const description = (
+    
     <div style={{ gridColumn: 'b2 / a6' }}>
       <h2>Building overview</h2>
       <p style={{ margin: '1rem 0 1rem 0' }}>{listing?.description}</p>
