@@ -32,7 +32,7 @@ const rental = stylex.create({
     margin: '1rem',
   },
   overview: {
-    gridColumn: 'b2 / a6',
+    gridColumn: 'a3 / a6',
   },
   description: {
     margin: '1rem 0 1rem 0',
@@ -41,7 +41,7 @@ const rental = stylex.create({
     marginTop: '1rem',
   },
   details: {
-    gridColumn: 'a0 / a2',
+    gridColumn: 'a0 / a3',
   },
   rooms: {
     marginBottom: '2rem',
@@ -58,7 +58,10 @@ const rental = stylex.create({
     marginBottom: '1rem',
   },
   highlightsList: {
-    margin: '1rem',
+    margin: '0',
+    marginLeft: '0.5rem',
+    paddingInlineStart: 0,
+    overflowWrap: 'break-word',
   },
 })
 
@@ -103,7 +106,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       </h2>
       <div {...stylex.props(rental.rooms)}>{listing?.rooms}</div>
       <div {...stylex.props(rental.address)}>
-        {`${listing?.address_1} ${listing?.address_2},  ${listing?.city}, ${listing?.state_province} ${listing?.postal_code}`}
+        {`${listing?.address_1}${listing?.address_2 !== null ? ' ' + listing?.address_2 : ''},  ${listing?.city}, ${listing?.state_province} ${listing?.postal_code}`}
       </div>
       <div {...stylex.props(rental.highlights)}>
         <h3>Highlights</h3>
