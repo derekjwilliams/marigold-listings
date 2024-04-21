@@ -52,9 +52,9 @@ export default async function Page() {
           <div {...stylex.props(rental.imageContainer)}>
             <Image
               {...stylex.props(rental.image)}
-              width={0}
-              height={0}
-              fill
+              width={200 * 1.5}
+              height={200}
+              //fill
               sizes='100vw'
               alt='cover image'
               src={listing.cover_image_url}
