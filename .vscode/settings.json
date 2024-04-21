@@ -1,8 +1,4 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": [
-    "nextjs",
-    "stylex",
-    "stylexjs"
-  ]
+  "cSpell.words": ["apikey", "nextjs", "stylex", "stylexjs"]
 }

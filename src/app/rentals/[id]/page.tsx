@@ -2,7 +2,6 @@
 import { createClient } from '@/lib/supabase/server'
 import Image from 'next/image'
 import * as stylex from '@stylexjs/stylex'
-import { Key } from 'react'
 
 const rental = stylex.create({
   logo: {
@@ -73,6 +72,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     .select(
       'description, features, monthly_rent, rooms, lease_terms, address_1, address_2, city, state_province, postal_code, required_legal_statement, listing_images(id, url, description)',
     )
+    //.limit(5, { referencedTable: 'listing_images' })// if we want to limit number of images, //see https://supabase.com/docs/reference/javascript/limit?queryGroups=example&example=on-a-referenced-table
     .eq('id', params.id)
     .throwOnError()
     .single()
@@ -112,12 +112,9 @@ export default async function Page({ params }: { params: { id: string } }) {
         <h3>Highlights</h3>
         <div>
           <ul {...stylex.props(rental.highlightsList)}>
-            {listing?.features.map(
-              (
-                feature: string | null | undefined,
-                index: Key | null | undefined,
-              ) => <li key={index}>{feature}</li>,
-            )}
+            {listing?.features.map((feature: string, index: string) => (
+              <li key={index}>{feature}</li>
+            ))}
           </ul>
         </div>
       </div>
