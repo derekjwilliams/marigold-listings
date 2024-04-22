@@ -5,8 +5,6 @@ import * as stylex from '@stylexjs/stylex'
 import { colors } from '@stylexjs/open-props/lib/colors.stylex'
 import { sizes } from '@stylexjs/open-props/lib/sizes.stylex'
 import { borders } from '@stylexjs/open-props/lib/borders.stylex'
-import { shadows } from '@stylexjs/open-props/lib/shadows.stylex'
-import { marigoldColors } from '../../../app/customStyles/marigoldColors.stylex'
 import { fonts } from '@stylexjs/open-props/lib/fonts.stylex'
 
 const imageSize = 220
@@ -16,7 +14,7 @@ const space = sizes.spacing3
 
 const rental = stylex.create({
   logo: {
-    backgroundColor: marigoldColors.flowerYellow,
+    backgroundColor: '#ffd55f',
     padding: sizes.spacing3,
   },
   propertyInformation: {
