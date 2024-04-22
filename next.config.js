@@ -32,6 +32,6 @@ const nextConfig = {
 }
 
 module.exports = stylexPlugin({
-  useCSSLayers: true,
+  // useCSSLayers: true,
   rootDir: __dirname,
 })(nextConfig)

@@ -2,70 +2,96 @@
 import { createClient } from '@/lib/supabase/server'
 import Image from 'next/image'
 import * as stylex from '@stylexjs/stylex'
+import { colors } from '@stylexjs/open-props/lib/colors.stylex'
+import { sizes } from '@stylexjs/open-props/lib/sizes.stylex'
+import { borders } from '@stylexjs/open-props/lib/borders.stylex'
+import { shadows } from '@stylexjs/open-props/lib/shadows.stylex'
+import { marigoldColors } from '../../../app/customStyles/marigoldColors.stylex'
+import { fonts } from '@stylexjs/open-props/lib/fonts.stylex'
+
+const imageSize = 220
+const aspectRatio = 1.6
+const logoSize = 492 / 8
+const space = sizes.spacing3
 
 const rental = stylex.create({
   logo: {
-    backgroundColor: 'rgb(255 213 95)',
-    padding: '1rem',
+    backgroundColor: marigoldColors.flowerYellow,
+    padding: sizes.spacing3,
   },
   propertyInformation: {
     display: 'grid',
     gridTemplateColumns:
       '[a0] 1fr [a1] 4fr [a2] 1fr [b2] 3fr [a3] 2fr [b3] 2fr [a4] 3fr [b4] 1fr [a5] 4fr [a6]',
-    gridColumnGap: '0.5vw',
-    gridRowGap: '1vh',
-    margin: '1rem',
+    gridColumnGap: sizes.fluid1,
+    gridRowGap: sizes.fluid2,
+    margin: space,
+    padding: space,
+  },
+  mediaScroller: {
+    display: 'grid',
+    gap: `0 ${space} ${space}`,
+    padding: space,
+    gridAutoFlow: 'column',
+    gridAutoColumns: {
+      default: '22%',
+      '@media (max-width: 800px)': '70%',
+      '@media (max-width: 1400px)': '30%',
+    },
+    overflowX: 'auto',
+    backgroundColor: colors.gray3,
+    overscrollBehavior: 'contain',
+  },
+  mediaElement: {
+    display: 'grid',
+    gridTemplateRows: 'min-content',
+    margin: `${space} ${sizes.spacing1}`,
+    borderRadius: borders.radius3,
   },
   image: {
+    inlineSize: '100%',
+    aspectRatio: 1.5,
     objectFit: 'cover',
-    boxShadow:
-      'rgba(0, 0, 0, 0.5) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px',
-    borderRadius: '0.5rem',
-    margin: 20,
+    layout: 'fixed',
+    width: '100%',
+    height: 'auto',
   },
-  images: {
-    justifyContent: 'space-evenly',
-    display: 'inline-flex',
-    gap: '1rem',
-    flexWrap: 'wrap',
-    margin: '1rem',
+  details: {
+    gridColumn: 'a0 / a3',
   },
   overview: {
     gridColumn: 'a3 / a6',
   },
   description: {
-    margin: '1rem 0 1rem 0',
+    margin: space,
   },
   legal: {
-    marginTop: '1rem',
-  },
-  details: {
-    gridColumn: 'a0 / a3',
+    margin: space,
   },
   rooms: {
-    marginBottom: '2rem',
+    marginBottom: sizes.spacing6,
   },
   heading: {
-    fontWeight: '700',
-    marginBottom: '2rem',
+    fontWeight: fonts.weight7,
+    marginBottom: sizes.spacing6,
   },
   address: {
-    marginBottom: '2rem',
-    fontWeight: '700',
+    marginBottom: sizes.spacing6,
+    fontWeight: fonts.weight7,
   },
   highlights: {
-    marginBottom: '1rem',
+    marginBottom: space,
   },
   highlightsList: {
     margin: '0',
-    marginLeft: '0.5rem',
+    marginLeft: sizes.spacing2,
+    lineHeight: sizes.spacing6,
     paddingInlineStart: 0,
     overflowWrap: 'break-word',
   },
 })
 
 export default async function Page({ params }: { params: { id: string } }) {
-  const aspectRatio = 1.5
   const supabase = createClient()
   const { data: listing } = await supabase
     .from('listings')
@@ -78,15 +104,16 @@ export default async function Page({ params }: { params: { id: string } }) {
     .single()
 
   const listingImages = listing?.listing_images?.map((image) => (
-    <Image
-      {...stylex.props(rental.image)}
-      key={image.id}
-      alt={image.description}
-      width={220 * aspectRatio}
-      height={220}
-      src={image.url}
-      loading='lazy'
-    ></Image>
+    <div key={image.id} {...stylex.props(rental.mediaElement)}>
+      <Image
+        {...stylex.props(rental.image)}
+        alt={image.description}
+        width={imageSize * aspectRatio}
+        height={imageSize}
+        src={image.url}
+        loading='lazy'
+      ></Image>
+    </div>
   ))
 
   const overview = (
@@ -125,8 +152,8 @@ export default async function Page({ params }: { params: { id: string } }) {
     <div {...stylex.props(rental.logo)}>
       <Image
         alt='simple logo'
-        width={492 / 8}
-        height={492 / 8}
+        width={logoSize}
+        height={logoSize}
         src='/simple_logo.png'
       />
     </div>
@@ -140,7 +167,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           {overview}
         </div>
       </div>
-      <div {...stylex.props(rental.images)}>{listingImages}</div>
+      <div {...stylex.props(rental.mediaScroller)}>{listingImages}</div>
     </div>
   )
 }
