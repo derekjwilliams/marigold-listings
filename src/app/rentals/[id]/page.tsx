@@ -15,7 +15,7 @@ const space = sizes.spacing3
 
 const rental = stylex.create({
   logo: {
-    backgroundColor: `${marigoldColors.flowerYellow}`,
+    backgroundColor: '#ffd55f',
     padding: sizes.spacing3,
   },
   propertyInformation: {
@@ -66,6 +66,7 @@ const rental = stylex.create({
   },
   legal: {
     margin: space,
+    fontSize: fonts.size0
   },
   rooms: {
     marginBottom: sizes.spacing6,
@@ -119,7 +120,6 @@ export default async function Page({ params }: { params: { id: string } }) {
     <div {...stylex.props(rental.overview)}>
       <h2>Building overview</h2>
       <p {...stylex.props(rental.description)}>{listing?.description}</p>
-      <p {...stylex.props(rental.legal)}>{listing?.required_legal_statement}</p>
     </div>
   )
 
@@ -167,6 +167,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         </div>
       </div>
       <div {...stylex.props(rental.mediaScroller)}>{listingImages}</div>
+      <p {...stylex.props(rental.legal)}>{listing?.required_legal_statement}</p>
     </div>
   )
 }
