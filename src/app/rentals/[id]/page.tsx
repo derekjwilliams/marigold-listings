@@ -7,6 +7,7 @@ import { sizes } from '@stylexjs/open-props/lib/sizes.stylex'
 import { borders } from '@stylexjs/open-props/lib/borders.stylex'
 import { fonts } from '@stylexjs/open-props/lib/fonts.stylex'
 import { marigoldColors } from '../../../app/customStyles/marigoldColors.stylex'
+import { getPlaceholderImage } from '@/utils/images'
 
 const imageSize = 220
 const aspectRatio = 1.6
@@ -51,7 +52,7 @@ const rental = stylex.create({
     inlineSize: '100%',
     aspectRatio: 1.5,
     objectFit: 'cover',
-    layout: 'fixed',
+    // layout: 'fixed',
     width: '100%',
     height: 'auto',
   },
@@ -66,7 +67,7 @@ const rental = stylex.create({
   },
   legal: {
     margin: space,
-    fontSize: fonts.size0
+    fontSize: fonts.size0,
   },
   rooms: {
     marginBottom: sizes.spacing6,
@@ -103,18 +104,23 @@ export default async function Page({ params }: { params: { id: string } }) {
     .throwOnError()
     .single()
 
-  const listingImages = listing?.listing_images?.map((image) => (
-    <div key={image.id} {...stylex.props(rental.mediaElement)}>
-      <Image
-        {...stylex.props(rental.image)}
-        alt={image.description}
-        width={imageSize * aspectRatio}
-        height={imageSize}
-        src={image.url}
-        loading='lazy'
-      ></Image>
-    </div>
-  ))
+  const listingImages = listing?.listing_images?.map(async (image) => {
+    const blur = await getPlaceholderImage(image.url)
+    return (
+      <div key={image.id} {...stylex.props(rental.mediaElement)}>
+        <Image
+          {...stylex.props(rental.image)}
+          alt={image.description}
+          width={imageSize * aspectRatio}
+          height={imageSize}
+          src={image.url}
+          placeholder='blur'
+          blurDataURL={blur.placeholder}
+          loading='lazy'
+        ></Image>
+      </div>
+    )
+  })
 
   const overview = (
     <div {...stylex.props(rental.overview)}>
